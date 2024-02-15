@@ -1,0 +1,48 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: turo-configmap
+  namespace: kube_namespace
+data:
+  nginx.conf: |
+    server {
+      listen       80;
+      server_name  localhost;
+
+      location / {
+          root   /usr/share/nginx/html;
+          index  index.html;
+      }
+
+      location = /page1.html {
+          return 301 /page2.html;
+      }
+    }
+    server {
+      listen       443;
+      server_name  phaneendra.test-subaccount-1-v02.test-subaccount-1.rr.mu;
+
+      location / {
+          root   /usr/share/nginx/html;
+          index  index.html index.html;
+      }
+
+      location = /page1.html {
+          return 301 /page-2.html;
+      }
+    }
+  config.html: |
+    <html>
+    <h1>Configmap Page</h1>
+    </br>
+    </html>
+  page2.html: |
+    html>
+    <h1>Page2 redirected from Page 1</h1>
+    </br>
+    </html>
+  index.html: |
+    <html>
+    <h1>Index Page from configmap</h1>
+    </br>
+    </html>

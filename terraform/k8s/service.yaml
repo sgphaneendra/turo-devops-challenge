@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: turo-service
+  namespace: kube_namespace
+  labels:
+    app: turo-app-service
+  annotations:
+    external-dns.alpha.kubernetes.io/hostname: dns_name
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+    name: http
+    protocol: TCP
+    targetPort: 80
+  - port: 443
+    name: https
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: turo-app
