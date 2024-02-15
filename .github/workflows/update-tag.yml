@@ -1,0 +1,32 @@
+name: Update the Image Tag and Deploy
+on:
+  workflow_dispatch:
+    inputs:
+      imageTag:
+        description: 'Image tag version to Deploy'
+        required: true
+
+jobs:
+  update_image_tag_and_deploy:
+    name: Update Image Tag to - ${{ github.event.inputs.imageTag }} and Deploy
+    environment: dev
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+        cache: 'pip' # caching pip dependencies
+
+    - name: Install Python Dependencies
+      run: pip install -r requirements.txt
+
+    - name: Update the Image Tag and Deploy
+      run: |
+        echo "ImageTag : ${{ github.event.inputs.imageTag }}"
+        python deploy_version.py ${{ github.event.inputs.imageTag }}
+      env:
+          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
