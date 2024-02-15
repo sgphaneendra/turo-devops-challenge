@@ -48,7 +48,7 @@ class TagUpdate:
             with open("terraform/terraform.tfvars", "r") as file_in:
                 data = hcl2.load(file_in)
 
-            data["image_name"] = "sgphaneendra/nginx-static-app:" + version
+            data["image_name"] = "sgphaneendra/nginx-static-app:" + self.new_image_tag
 
             with open("vars.tfvars.json", "w") as file_out:
                 file_out.write(json.dumps(data, indent=4))
