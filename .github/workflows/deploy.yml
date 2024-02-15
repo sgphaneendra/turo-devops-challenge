@@ -17,7 +17,7 @@ jobs:
       working-directory: terraform
       run: |
         echo "$KUBE_CONFIG" > kubeconf.conf
-        ls -l kubeconf
+        ls -l 
       env:
         KUBE_CONFIG: ${{ secrets.KUBECONFIG }}
 
