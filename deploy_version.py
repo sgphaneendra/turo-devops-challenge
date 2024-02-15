@@ -125,5 +125,5 @@ if __name__ == '__main__':
     pr_title = f'Update latest WebApp image tag to {new_image_tag}'
     pr_body = 'Updating the image tag in the terraform.tfvars file.'
 
-    updater = TagUpdate(deployment_yaml_path, new_image_tag)
+    updater = TagUpdate(new_image_tag)
     updater.create_pull_request(pr_title, pr_body)
