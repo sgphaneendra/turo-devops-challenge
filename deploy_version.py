@@ -80,7 +80,7 @@ class TagUpdate:
                 return
 
             # Commit changes
-            subprocess.run(['git', 'add', self.yaml_file_path])
+            subprocess.run(['git', 'add', 'terraform/terraform.tfvars'])
             subprocess.run(['git', 'commit', '-m', f'Update image tag to {self.new_image_tag}'])
             subprocess.run(['git', 'push', '-u', 'origin', self.branch_name])
 
