@@ -39,23 +39,23 @@
   ## Application endpoints
 
   - `/` serves index page
- 
+   ```
     curl https://phaneendra.test-subaccount-1-v02.test-subaccount-1.rr.mu/
     <html>
     <h1>Index Page from configmap!</h1>
     </br>
     </html>
-
+  ```
   - `/index.html` serves index page
- 
+   ```
     curl https://phaneendra.test-subaccount-1-v02.test-subaccount-1.rr.mu/index.html
     <html>
     <h1>Index Page from configmap!</h1>
     </br>
     </html>
-
+  ```
   - `/page1.html` gets redirected and serves `page2.html`
- 
+   ```
     curl -v https://phaneendra.test-subaccount-1-v02.test-subaccount-1.rr.mu/page1.html
     *   Trying 34.237.96.10:443...
     * Connected to phaneendra.test-subaccount-1-v02.test-subaccount-1.rr.mu (34.237.96.10) port 443 (#0)
@@ -83,13 +83,13 @@
     * Connection #0 to host phaneendra.test-subaccount-1-v02.test-subaccount-1.rr.mu left intact
 
   - `config.html` serves page populated from k8s configmap 
-
+    ```
     curl https://phaneendra.test-subaccount-1-v02.test-subaccount-1.rr.mu/config.html
     <html>
     <h1>Configmap Page!</h1>
     </br>
     </html>
-
+    ```
   ## CI CD Flow
 
   - When feature branch is created and changes made build pipeline is created and new docker image is created and pushed.
