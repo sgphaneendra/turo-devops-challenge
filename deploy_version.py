@@ -13,14 +13,14 @@ import requests
 class TagUpdate:
     def __init__(self, new_image_tag):
         self.new_image_tag = new_image_tag
-        self.github_repository = os.environ.get('GITHUB_REPOSITORY')
+        self.github_repository = 'turo-devops-challenge'
         self.github_token = os.environ.get('GITHUB_TOKEN')
         self.branch_name = f'release-{new_image_tag}'
         self.uri = "https://api.github.com"
         self.header = {
             'Authorization': f'Bearer {self.github_token}',
             'Accept': 'application/vnd.github.v3+json'}
-        self.user_login = os.environ.get('GITHUB_USER')
+        self.user_login = 'sgphaneendra'
 
     def get_user_info(self):
         print(f"Getting user info for {self.user_login}...")
