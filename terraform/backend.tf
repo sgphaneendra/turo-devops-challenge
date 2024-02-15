@@ -2,9 +2,9 @@ terraform {
   backend "s3" {
     bucket = "terraform-tfstate-sai"
     key    = "terraform/state"
-    region = "us-east-1"
+    region = "eu-west-2"
   }
 }
 provider "aws" {
-  region = "us-east-1"
+  region = "eu-west-2"
 }
