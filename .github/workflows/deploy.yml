@@ -16,7 +16,6 @@ jobs:
     - name: Pull kubeconfig
       working-directory: terraform
       run: |
-        mkdir kubeconf
         echo "$KUBE_CONFIG" > kubeconf.conf
         ls -l kubeconf
       env:
@@ -28,20 +27,25 @@ jobs:
         terraform_version: 1.3.0
 
     - name: Terraform init
+      working-directory: terraform
       id: init
       run: terraform init 
 
     - name: Terraform format
+      working-directory: terraform
       id: fmt
       run: terraform fmt -check
 
     - name: Terraform validate
+      working-directory: terraform
       id: validate
       run: terraform validate
 
     - name: Terraform plan
+      working-directory: terraform
       id: plan
       run: terraform plan
  
     - name: Terraform Apply
+      working-directory: terraform
       run: terraform apply -auto-approve -input=false
