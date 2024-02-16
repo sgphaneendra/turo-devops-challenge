@@ -1,9 +1,9 @@
 # Turo Devops Challange
 
-- have used nginx ass the webserver of choice.
+- have used nginx as the webserver of choice.
 - bash scripting was used to create the build script that build and pushes docker image.
 - Python script was used to update the tag version in terraform code and create PR.
-- Github actions is used to create the CI CD Pipeline
+- Github actions is used to create the CI/CD Pipeline
 - have covered all the enhancements.
 - Have made a slight change in enhancement 3 due to time constraints. The requirement was to populate index page with value from config map set as environment variable. That required templating static pages and rendering them with values from configmap. instead populated the entire index page from config map content writted to html file mounted as volume.
 
