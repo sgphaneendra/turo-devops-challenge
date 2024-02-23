@@ -31,18 +31,3 @@ data:
           return 301 /page-2.html;
       }
     }
-  config.html: |
-    <html>
-    <h1>Configmap Page!</h1>
-    </br>
-    </html>
-  page2.html: |
-    html>
-    <h1>Page2 redirected from Page 1!</h1>
-    </br>
-    </html>
-  index.html: |
-    <html>
-    <h1>Index Page from configmap!</h1>
-    </br>
-    </html>
